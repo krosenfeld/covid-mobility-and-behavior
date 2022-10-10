@@ -19,7 +19,7 @@ First, we need to create a virtual environment and install the requirements for 
 The following commands will create a conda virtual environment for the project and activate it:
 
     make create_environment
-    source activate covid-mobility-and-behavior
+    conda activate covid-mobility-and-behavior
     
 After that, we install required packages and create a jupyter kernel for the project (make sure R is installed on the system):
 
@@ -108,6 +108,16 @@ Project Organization
         └── utils.py                       <- Helper functions
         
         
+Debugging:
+--------
+
+Installing on RHEL8 required dependencies:
+
+```
+sudo apt-get build-dep python-matplotlib
+sudo yum install freetype-devel
+sudo yum install libpng-devel
+```
 
 --------
 
