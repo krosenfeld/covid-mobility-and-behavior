@@ -108,6 +108,15 @@ Project Organization
         └── utils.py                       <- Helper functions
         
         
+
+Docker:
+--------
+
+Build docker image:
+    docker build -t cmb .
+Run the docker image:
+    docker run -p 8889:8889 cmb
+
 Debugging:
 --------
 
