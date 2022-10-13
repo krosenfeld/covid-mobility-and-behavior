@@ -114,8 +114,8 @@ Docker:
 
 Build docker image:
     docker build -t cmb .
-Run the docker image:
-    docker run -p 8889:8889 cmb
+Run the docker image from the covid-mobility-and-behavior root directory and running using root to directly edit notebooks:
+    docker run -p 8889:8889 -w /app -v "$(pwd):/app" -u 0:0  cm
 
 Debugging:
 --------
