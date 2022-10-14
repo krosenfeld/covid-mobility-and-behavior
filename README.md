@@ -112,21 +112,21 @@ Project Organization
 Docker:
 --------
 
-Build docker image:
+Build docker image called *cmb*:
+
     docker build -t cmb .
-Run the docker image from the covid-mobility-and-behavior root directory and running using root to directly edit notebooks:
-    docker run -p 8889:8889 -w /app -v "$(pwd):/app" -u 0:0  cm
 
-Debugging:
---------
+And run the docker:
 
-Installing on RHEL8 required dependencies:
+    docker run -d `
+        -v "$(pwd):/home/jovyan/work" `
+        -p 8888:8888 `
+        --user root `
+        -e CHOWN_EXTRA="/home/jovyan/work" `
+        -e CHOWN_EXTRA_OPTS="-R" `
+        cmb
 
-```
-sudo apt-get build-dep python-matplotlib
-sudo yum install freetype-devel
-sudo yum install libpng-devel
-```
+The jupyter lab will be available via your browser at http://127.0.0.1:8888/.
 
 --------
 

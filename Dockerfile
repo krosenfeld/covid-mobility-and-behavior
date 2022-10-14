@@ -1,3 +1,4 @@
+# https://jupyter-docker-stacks.readthedocs.io/
 # https://github.com/jupyter/docker-stacks/blob/main/datascience-notebook/Dockerfile
 
 FROM jupyter/datascience-notebook:python-3.8    
@@ -27,6 +28,7 @@ RUN mamba install --quiet --yes \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+# Switch back to jovyan to avoid accidental container runs as root
+USER ${NB_UID}
 
-# Allows root which seems dangerous
-CMD ["jupyter", "lab", "--no-browser", "--port=8889", "--allow-root", "/app"]
+WORKDIR "${HOME}"
